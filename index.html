@@ -407,7 +407,12 @@
     }
 
     const nomes = ["Juliana","Mariana","Bárbara","Fernanda","Camila","Paula","Scarlat","Bruna","Luiza","Larissa","Patricia","Renata"];
-    const cidades = ["SP","RJ","BH","Curitiba","Recife","Salvador","Fortaleza","Brasília","Porto Alegre"];
+    const cidades = [
+      // Ceará
+      "Fortaleza","Juazeiro do Norte","Crato","Barbalha","Sobral","Caucaia","Maracanaú","Iguatu","Quixadá","Crateús","Itapipoca","Aquiraz","Eusébio","Canindé","Russas","Limoeiro do Norte","Tianguá","Brejo Santo",
+      // Resto do Nordeste
+      "Recife","Petrolina","Caruaru","Salvador","Feira de Santana","Natal","Mossoró","João Pessoa","Campina Grande","Teresina","São Luís","Maceió","Aracaju"
+    ];
     setInterval(() => {
       const nome = nomes[Math.floor(Math.random() * nomes.length)];
       const cidade = cidades[Math.floor(Math.random() * cidades.length)];
