@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Comprado Indicado</title>
+  <meta name="description" content="Entre no meu Grupo VIP e receba todos os dias promoções reais, cupons que funcionam e achadinhos.">
+  <meta name="theme-color" content="#5B2A86">
+  <link rel="icon" href="img/foto.webp" type="image/webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --roxo: #5B2A86;
+      --roxo-escuro: #3B1A5A;
+      --rosa: #B0175A;
+      --rosa-medio: #D9488A;
+      --rosa-claro: #F6E3EE;
+      --lilas: #E7D6F3;
+      --fundo: #F8F3FC;
+      --texto: #222;
+      --texto-suave: #666;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: var(--fundo);
+      color: var(--texto);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .background {
+      min-height: 100vh;
+      padding: 20px 10px 90px;
+    }
+
+    .container {
+      max-width: 480px;
+      margin: auto;
+      background: #fff;
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 10px 30px rgba(91, 42, 134, 0.08);
+    }
+
+    /* TOP BAR */
+    .top-bar {
+      background: var(--roxo);
+      color: #fff;
+      text-align: center;
+      padding: 12px;
+      font-size: 13px;
+      font-weight: 600;
+      border-radius: 10px;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      letter-spacing: 0.3px;
+    }
+
+    .fire svg {
+      width: 18px;
+      height: 18px;
+      fill: none;
+      stroke: #fff;
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      display: block;
+      animation: pulseFire 1.2s infinite;
+    }
+
+    @keyframes pulseFire {
+      0%   { transform: scale(1); }
+      50%  { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+
+    /* HERO */
+    .hero { text-align: center; }
+
+    .avatar {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      padding: 4px;
+      margin: 0 auto;
+      background: linear-gradient(135deg, var(--roxo), var(--rosa-medio));
+    }
+
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      border-radius: 50%;
+      border: 3px solid #fff;
+      object-fit: cover;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      line-height: 1.25;
+      margin: 18px 0 12px;
+      color: var(--roxo-escuro);
+    }
+
+    .sub {
+      font-size: 14px;
+      color: var(--texto-suave);
+      line-height: 1.6;
+      margin: 0 0 12px;
+    }
+
+    .sub b { color: var(--texto); font-weight: 600; }
+
+    /* BOTÃO */
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: #25D366;
+      color: #fff;
+      text-align: center;
+      padding: 15px;
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 16px;
+      letter-spacing: 0.3px;
+      text-decoration: none;
+      margin: 20px 0 10px;
+      animation: pulse 1.5s infinite;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .btn .wa {
+      width: 22px;
+      height: 22px;
+      fill: #fff;
+      flex-shrink: 0;
+    }
+
+    @keyframes pulse {
+      0%   { transform: scale(1);    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6); }
+      70%  { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(37, 211, 102, 0); }
+      100% { transform: scale(1);    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+    }
+
+    .sub-btn {
+      font-size: 12px;
+      color: #777;
+      text-align: center;
+    }
+
+    /* PROGRESSO */
+    .progress-box {
+      background: var(--rosa-claro);
+      padding: 15px;
+      border-radius: 12px;
+      margin-top: 20px;
+    }
+
+    .progress-header {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      margin-bottom: 6px;
+    }
+
+    .progress-bar {
+      background: #fff;
+      height: 8px;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .progress {
+      background: linear-gradient(90deg, var(--roxo), var(--rosa));
+      height: 100%;
+      width: 48%;
+      transition: width 1s;
+    }
+
+    .progress-text {
+      text-align: right;
+      font-size: 13px;
+      margin-top: 6px;
+    }
+
+    .progress-text strong { color: var(--rosa); }
+
+    /* NOTIFICAÇÃO */
+    .notification {
+      position: fixed;
+      bottom: calc(20px + env(safe-area-inset-bottom));
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--roxo);
+      color: #fff;
+      padding: 10px 18px;
+      border-radius: 30px;
+      text-align: center;
+      font-size: 13px;
+      z-index: 999;
+      box-shadow: 0 10px 25px rgba(59, 26, 90, 0.25);
+      width: max-content;
+      max-width: calc(100% - 40px);
+    }
+
+    /* GRID */
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .card {
+      background: #FDFBFE;
+      border-radius: 14px;
+      padding: 15px 15px 15px 20px;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(91, 42, 134, 0.06);
+      position: relative;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 15px;
+      bottom: 15px;
+      width: 6px;
+      border-radius: 10px;
+      background: linear-gradient(180deg, var(--roxo), var(--rosa-medio));
+    }
+
+    .icon svg {
+      width: 30px;
+      height: 30px;
+      fill: none;
+      stroke: var(--roxo);
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      margin-bottom: 4px;
+    }
+
+    .card h3 {
+      font-size: 14px;
+      margin: 4px 0 6px;
+      color: var(--roxo-escuro);
+    }
+
+    .card p {
+      font-size: 12px;
+      color: var(--texto-suave);
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    .full {
+      grid-column: span 2;
+      width: 60%;
+      margin: auto;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 25px;
+    }
+
+    .footer-links {
+      font-size: 12px;
+      color: #777;
+      margin-bottom: 5px;
+    }
+
+    /* CELULAR PEQUENO */
+    @media (max-width: 360px) {
+      .container { padding: 16px; }
+      h1 { font-size: 22px; }
+      .grid { gap: 10px; }
+      .full { width: 80%; }
+    }
+
+    /* COMPUTADOR */
+    @media (min-width: 768px) {
+      body {
+        background:
+          radial-gradient(circle at 15% 20%, rgba(176, 23, 90, 0.10), transparent 40%),
+          radial-gradient(circle at 85% 80%, rgba(91, 42, 134, 0.12), transparent 45%),
+          var(--fundo);
+        background-attachment: fixed;
+      }
+      .background { padding: 50px 20px 100px; }
+      .container { max-width: 520px; padding: 28px; }
+      .avatar { width: 130px; height: 130px; }
+      h1 { font-size: 27px; }
+      .sub { font-size: 15px; }
+      .btn { transition: background 0.2s; }
+      .btn:hover { background: #1EBE5A; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .btn, .fire svg { animation: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="background">
+    <div class="container">
+
+      <div class="top-bar">
+        <span class="fire"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg></span>
+        ÚLTIMAS VAGAS DISPONÍVEIS
+        <span class="fire"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg></span>
+      </div>
+
+      <div class="hero">
+        <div class="avatar"><img src="img/foto.webp" alt="Foto da curadora do Comprado Indicado" width="110" height="110"></div>
+        <h1>Amiga, eu garimpo as melhores promoções ocultas da internet de moda e beleza 💖</h1>
+        <p class="sub">Entre no meu Grupo VIP e receba todos os dias promoções reais, cupons que funcionam e achadinhos para você pagar pouco sem perder tempo procurando.</p>
+        <p class="sub" id="linha-membros"><b><span id="membros"></span> mulheres já estão economizando</b></p>
+        <a href="#" class="btn" id="btn-grupo"><svg class="wa" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.860 9.860 0 01-1.510-5.260c.001-5.450 4.436-9.884 9.888-9.884 2.640 0 5.122 1.030 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.450-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.050 0C5.495 0 .160 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.480-8.413Z"/></svg><span>QUERO ENTRAR AGORA</span></a>
+        <div class="sub-btn">Grupo gratuito • silencioso • sem spam</div>
+      </div>
+
+      <div class="progress-box">
+        <div class="progress-header">
+          <span>Vagas preenchidas</span>
+          <span id="percent">48%</span>
+        </div>
+        <div class="progress-bar"><div class="progress" id="progress"></div></div>
+        <div class="progress-text">Restam apenas <strong id="vagas">31 vagas</strong></div>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 8a2 2 0 0 0 2-2h14a2 2 0 0 0 2 2v2a2 2 0 0 0 0 4v2a2 2 0 0 0-2 2H5a2 2 0 0 0-2-2v-2a2 2 0 0 0 0-4z"/><path d="M10 9.5l4 5M14 9.5l-4 5"/></svg></div>
+          <h3>Cupons que funcionam</h3>
+          <p>Cupons exclusivos, testados e atualizados para você economizar de verdade na finalização da compra.</p>
+        </div>
+        <div class="card">
+          <div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-8 9 8"/><path d="M5 9.5V20h14V9.5"/><path d="M10 20v-6h4v6"/></svg></div>
+          <h3>Casa &amp; decoração</h3>
+          <p>As melhores marcas de decoração, cama/banho e eletrodomésticos, com preços que ninguém acredita.</p>
+        </div>
+        <div class="card">
+          <div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 7h12l1.5 13h-15z"/><path d="M9 9V6a3 3 0 0 1 6 0v3"/></svg></div>
+          <h3>Moda &amp; beleza</h3>
+          <p>Economia real nos produtos de roupas, acessórios e beleza mais desejados do momento.</p>
+        </div>
+        <div class="card">
+          <div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg></div>
+          <h3>Ofertas relâmpago</h3>
+          <p>Você será a primeira a saber quando o preço cair muito, garantindo as melhores ofertas.</p>
+        </div>
+        <div class="card full">
+          <div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.4 8-8 9-4.6-1-8-4.5-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-4.5"/></svg></div>
+          <h3>Links verificados</h3>
+          <p>Segurança total. Apenas lojas oficiais e confiáveis.</p>
+        </div>
+      </div>
+
+      <div class="footer">
+        <div class="footer-links">Política de Privacidade • Termos de Uso</div>
+        <div class="footer-links">Curadoria por <span id="instagram">Comprado Indicado</span> 💖</div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="notification" id="notify">Juliana de SP acabou de entrar no grupo</div>
+
+  <script>
+    // ====== CONFIGURAÇÃO: edite só aqui ======
+    const CONFIG = {
+      linkGrupo: "",   // link do grupo (ex.: https://chat.whatsapp.com/...). Vazio = botão sem link
+      membros: "",     // ex.: "+1.200". Vazio = a linha some
+      instagram: ""    // ex.: "@seuperfil". Vazio = mostra "Comprado Indicado"
+    };
+    // =========================================
+
+    const btn = document.getElementById("btn-grupo");
+    if (CONFIG.linkGrupo) {
+      btn.href = CONFIG.linkGrupo;
+    } else {
+      btn.addEventListener("click", e => e.preventDefault());
+    }
+
+    if (CONFIG.membros) {
+      document.getElementById("membros").textContent = CONFIG.membros;
+    } else {
+      document.getElementById("linha-membros").style.display = "none";
+    }
+
+    if (CONFIG.instagram) {
+      document.getElementById("instagram").textContent = CONFIG.instagram;
+    }
+
+    const nomes = ["Juliana","Mariana","Bárbara","Fernanda","Camila","Paula","Scarlat","Bruna","Luiza","Larissa","Patricia","Renata"];
+    const cidades = ["SP","RJ","BH","Curitiba","Recife","Salvador","Fortaleza","Brasília","Porto Alegre"];
+    setInterval(() => {
+      const nome = nomes[Math.floor(Math.random() * nomes.length)];
+      const cidade = cidades[Math.floor(Math.random() * cidades.length)];
+      document.getElementById("notify").innerText = nome + " de " + cidade + " acabou de entrar no grupo";
+    }, 3000);
+
+    let vagas = 31;
+    const total = 60;
+    function atualizarVagas() {
+      const percent = Math.round(((total - vagas) / total) * 100);
+      document.getElementById("vagas").innerText = vagas + " vagas";
+      document.getElementById("percent").innerText = percent + "%";
+      document.getElementById("progress").style.width = percent + "%";
+    }
+    atualizarVagas();
+    setInterval(() => {
+      if (vagas > 3) { vagas--; atualizarVagas(); }
+    }, 4000);
+  </script>
+</body>
+</html>
