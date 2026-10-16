@@ -385,7 +385,7 @@
     const CONFIG = {
       linkGrupo: "https://v2automatisagrupos.com/r/ygd5nsui",   // link do grupo. Vazio = botão sem link
       membros: "",     // ex.: "+1.200". Vazio = mostra "Seja uma das primeiras a entrar no grupo VIP"
-      instagram: ""    // ex.: "@seuperfil". Vazio = mostra "Achado e Indicado"
+      instagram: "@dicassdarosy"    // ex.: "@seuperfil". Vazio = mostra "Achado e Indicado"
     };
     // =========================================
 
@@ -401,7 +401,13 @@
     }
 
     if (CONFIG.instagram) {
-      document.getElementById("instagram").textContent = CONFIG.instagram;
+      const ig = document.createElement("a");
+      ig.href = "https://instagram.com/" + CONFIG.instagram.replace("@", "");
+      ig.target = "_blank";
+      ig.rel = "noopener";
+      ig.textContent = CONFIG.instagram;
+      ig.style.color = "inherit";
+      document.getElementById("instagram").replaceChildren(ig);
     }
 
     const nomes = ["Juliana","Mariana","Bárbara","Fernanda","Camila","Paula","Scarlat","Bruna","Luiza","Larissa","Patricia","Renata"];
