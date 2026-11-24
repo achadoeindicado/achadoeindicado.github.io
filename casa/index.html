@@ -714,6 +714,24 @@
       .ticker, .cta, .cta::after { animation: none; }
     }
   </style>
+  <!-- Meta Pixel Code - Dicas do Lar -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1827049991915855');
+  fbq('track', 'PageView');
+  fbq('track', 'ViewContent');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=1827049991915855&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
 </head>
 <body>
 
@@ -858,6 +876,20 @@
     const btn = document.getElementById("btn-grupo");
     if (CONFIG.linkGrupo) {
       btn.href = CONFIG.linkGrupo;
+      // Pixel: Lead + CompleteRegistration no clique, uma vez só, e depois abre o grupo
+      let redirecionando = false;
+      btn.addEventListener("click", function (e) {
+        e.preventDefault();
+        if (redirecionando) return;
+        redirecionando = true;
+        try {
+          if (typeof fbq === "function") {
+            fbq("track", "Lead");
+            fbq("track", "CompleteRegistration");
+          }
+        } catch (erro) {}
+        setTimeout(function () { window.location.href = CONFIG.linkGrupo; }, 300);
+      });
     } else {
       btn.addEventListener("click", e => e.preventDefault());
     }
